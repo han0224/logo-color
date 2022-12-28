@@ -1,0 +1,24 @@
+.colors {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+
+  height: 40px;
+  gap: 10px;
+  padding: 10px;
+  align-items: center;
+  /* border: 1px solid black; */
+}
+
+.color {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  border-radius: 50%;
+  transition: transfrom ease-in 0.2s;
+}
+
+.color:hover {
+  transform: scale(1.15);
+}
