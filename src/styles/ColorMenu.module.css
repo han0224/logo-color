@@ -7,11 +7,26 @@
   height: 100vh;
   width: 100%;
   top: 0;
-  background-color: aqua;
+  background-color: rgba(211, 211, 211, 0.403);
+  box-shadow: 1px 1px 20px rgba(0, 0, 0, 0.263);
 }
-
+.title {
+  height: 20%;
+}
+.list {
+  height: 80%;
+}
+.title > h1 {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 36px;
+  text-align: center;
+}
 .item {
+  display: flex;
+  font-family: "GangwonEdu_OTFBoldA";
+  padding: 10px;
   padding-left: 10px;
   padding-top: 10px;
-  font-size: 24px;
+  font-size: 16px;
 }

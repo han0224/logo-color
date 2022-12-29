@@ -1,5 +1,6 @@
 import styles from "styles/Table.module.css";
 import ColorList from "./ColorList";
+
 const Table = ({ data }) => {
   return (
     <div className={styles.table}>
@@ -7,10 +8,15 @@ const Table = ({ data }) => {
         <div
           key={item.id}
           className={styles.card}
-          style={{ background: `${item.list[0].code}` }}
+          style={{ backgroundColor: `${item.list[0].code}` }}
         >
           <div className={styles.content}>
-            <h1>{item.name}</h1>
+            <div className={styles.title}>
+              <div className={styles.image}>
+                <img src={item.image}></img>
+              </div>
+              <h1>{item.name}</h1>
+            </div>
             <p>{item.describe}</p>
             <ColorList color={item.list} />
           </div>

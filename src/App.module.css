@@ -3,5 +3,8 @@
   width: 100%;
 }
 .left {
-  width: 430px;
+  width: auto;
+}
+.right {
+  width: 100%;
 }

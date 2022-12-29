@@ -1,4 +1,5 @@
 import styles from "styles/ColorList.module.css";
+
 const ColorList = ({ color }) => {
   const clickCopy = (text) => {
     console.log("!!!", text);
