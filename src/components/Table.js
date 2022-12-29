@@ -1,7 +1,6 @@
 import styles from "styles/Table.module.css";
 import ColorList from "./ColorList";
 const Table = ({ data }) => {
-  console.log(data);
   return (
     <div className={styles.table}>
       {data.map((item) => (

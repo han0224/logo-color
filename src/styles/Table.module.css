@@ -1,5 +1,5 @@
 .table {
-  margin: 0 50px;
+  margin: 20px 50px;
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
@@ -12,7 +12,6 @@
   background-color: red;
   border-radius: 20px;
   transform: scale(1);
-  /* border: 1px solid rgb(213, 213, 213); */
   border-right: 2px solid rgba(135, 135, 135, 0.284);
   box-shadow: rgb(135, 135, 135) -10px -3px 20px;
   transition: transform 0.2s;
