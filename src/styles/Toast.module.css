@@ -1,0 +1,16 @@
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  background-color: #41526f;
+  box-shadow: 2px 3px 7px rgb(135, 135, 135);
+  padding: 13px 50px;
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+
+.message {
+  font-weight: 700;
+  color: white;
+}

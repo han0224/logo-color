@@ -1,31 +1,19 @@
 import SearchBar from "./components/SearchBar";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Table from "components/Table";
 import { Data } from "assets/Data";
 import ColorMenu from "components/ColorMenu";
 import styles from "App.module.css";
+import Toast from "components/Toast";
+import filterColor from "utils/FilterColor";
+import search from "utils/search";
+import { store } from "contexts/StoreContext";
 
 function App() {
   const [query, setQuery] = useState("");
   const [viewData, setViewData] = useState(Data);
   const [checkItem, setCheckItem] = useState(new Set());
-
-  const search = (data) => {
-    return data.filter((item) => item.name.toLowerCase().includes(query));
-  };
-  const filterColor = () => {
-    if (checkItem.size === 0) {
-      setViewData(Data);
-      return;
-    }
-    const tmp = [];
-    for (let item of Data) {
-      if (item.list.some((v) => checkItem.has(v.color))) {
-        tmp.push(item);
-      }
-    }
-    setViewData(tmp);
-  };
+  const [toast, setToast] = useState({ view: false, msg: "copy" });
 
   const checkedItemHandler = (event, id) => {
     const isChecked = event.currentTarget.checked;
@@ -36,20 +24,31 @@ function App() {
       checkItem.delete(id);
       setCheckItem(checkItem);
     }
-    console.log(checkItem);
-    filterColor();
+    setViewData(filterColor(checkItem));
   };
 
+  useEffect(() => {
+    console.log("!!", toast.view);
+    if (toast.view) {
+      setTimeout(() => {
+        setToast({ view: false, msg: toast.msg });
+      }, 1000);
+    }
+  }, [toast]);
+
   return (
-    <div className={styles.app}>
-      <div className={styles.left}>
-        <ColorMenu checkedItemHandler={checkedItemHandler} />
+    <store.Provider value={{ toast, setToast }}>
+      <div className={styles.app}>
+        <div className={styles.left}>
+          <ColorMenu checkedItemHandler={checkedItemHandler} />
+        </div>
+        <div className={styles.right}>
+          <SearchBar setQuery={setQuery} />
+          <Table data={search(viewData, query)} />
+        </div>
+        <Toast />
       </div>
-      <div className={styles.right}>
-        <SearchBar setQuery={setQuery} />
-        <Table data={search(viewData)} />
-      </div>
-    </div>
+    </store.Provider>
   );
 }
 

@@ -6,6 +6,7 @@ export const Colors = {
   BLUE: "Blue",
   PURPLE: "Purple",
   BROWN: "Brown",
+  PINK: "Pink",
   BLACK: "Black",
   WHITE: "White",
 };

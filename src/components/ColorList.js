@@ -1,12 +1,16 @@
 import styles from "styles/ColorList.module.css";
-
+import { useContext } from "react";
+import { store } from "contexts/StoreContext";
 const ColorList = ({ color }) => {
+  const { setToast } = useContext(store);
+
   const clickCopy = (text) => {
-    console.log("!!!", text);
     if (navigator.clipboard) {
       navigator.clipboard
         .writeText(text)
-        .then(() => alert("good"))
+        .then(() => {
+          setToast({ view: true, msg: "복사되었습니다." });
+        })
         .catch(() => alert("nope"));
     } else {
       alert("nono");
@@ -22,6 +26,7 @@ const ColorList = ({ color }) => {
           style={{ background: `${v.code}` }}
         ></button>
       ))}
+      {/* <div className={styles.alert}>복사되었습니다.</div> */}
     </div>
   );
 };

@@ -7,10 +7,7 @@ export const Data = [
     name: "naver",
     describe: "한국 포털 회사",
     image: IMG.NAVER,
-    list: [
-      { color: Colors.GREEN, code: "#2DB400" },
-      { color: Colors.WHITE, code: "#fff" },
-    ],
+    list: [{ color: Colors.GREEN, code: "#2DB400" }],
   },
   {
     id: 2,
@@ -30,10 +27,19 @@ export const Data = [
     list: [
       { color: Colors.RED, code: "#E32229" },
       { color: Colors.WHITE, code: "#FFFFFF" },
-      { color: Colors.RED, code: "#E95562" },
       { color: Colors.YELLOW, code: "#F8B505" },
       { color: Colors.GREEN, code: "#A9CD24" },
       { color: Colors.BLUE, code: "#46B1E6" },
+    ],
+  },
+  {
+    id: 4,
+    name: "당근마켓",
+    describe: "중고거래",
+    image: IMG.DAANGN,
+    list: [
+      { color: Colors.ORANGE, code: "#FF8B3A" },
+      { color: Colors.GREEN, code: "#56C371" },
     ],
   },
 ];
