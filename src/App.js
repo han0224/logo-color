@@ -1,11 +1,10 @@
-import SearchBar from "./components/SearchBar";
+import SearchBar from "components/SearchBar";
 import { useEffect, useState } from "react";
 import Table from "components/Table";
 import { Data } from "assets/Data";
 import ColorMenu from "components/ColorMenu";
 import styles from "App.module.css";
 import Toast from "components/Toast";
-import filterColor from "utils/FilterColor";
 import search from "utils/search";
 import { store } from "contexts/StoreContext";
 
@@ -14,18 +13,6 @@ function App() {
   const [viewData, setViewData] = useState(Data);
   const [checkItem, setCheckItem] = useState(new Set());
   const [toast, setToast] = useState({ view: false, msg: "copy" });
-
-  const checkedItemHandler = (event, id) => {
-    const isChecked = event.currentTarget.checked;
-    if (isChecked) {
-      checkItem.add(id);
-      setCheckItem(checkItem);
-    } else if (!isChecked && checkItem.has(id)) {
-      checkItem.delete(id);
-      setCheckItem(checkItem);
-    }
-    setViewData(filterColor(checkItem));
-  };
 
   useEffect(() => {
     console.log("!!", toast.view);
@@ -37,10 +24,10 @@ function App() {
   }, [toast]);
 
   return (
-    <store.Provider value={{ toast, setToast }}>
+    <store.Provider value={{ toast, setToast, checkItem, setCheckItem }}>
       <div className={styles.app}>
         <div className={styles.left}>
-          <ColorMenu checkedItemHandler={checkedItemHandler} />
+          <ColorMenu setViewData={setViewData} />
         </div>
         <div className={styles.right}>
           <SearchBar setQuery={setQuery} />
