@@ -16,6 +16,7 @@
   border: 1px solid black;
   border-radius: 50%;
   transition: transfrom ease-in 0.2s;
+  cursor: copy;
 }
 
 .color:hover {
